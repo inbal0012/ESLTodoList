@@ -9,9 +9,12 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/todos', {
-  useNewUrlParser: true,
-});
+mongoose.connect(
+  process.env.FIXIE_SOCKS_HOST || 'mongodb://localhost:27017/todos',
+  {
+    useNewUrlParser: true,
+  }
+);
 const connection = mongoose.connection;
 
 connection.once('open', function () {
