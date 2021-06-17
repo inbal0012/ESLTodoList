@@ -92,14 +92,18 @@ export default class TodosList extends Component {
 
   todoList() {
     var filteredTodos = this.state.todos;
-    if (!this.state.search.match(/^ *$/)) {
+    if (!this.state.search.toLowerCase().match(/^ *$/)) {
       filteredTodos = filteredTodos.filter((todo) => {
         if (this.state.searchBy === 'Description')
-          return todo.todo_description.includes(this.state.search);
+          return todo.todo_description
+            .toLowerCase()
+            .includes(this.state.search);
         else if (this.state.searchBy === 'Responsible')
-          return todo.todo_responsible.includes(this.state.search);
+          return todo.todo_responsible
+            .toLowerCase()
+            .includes(this.state.search);
         else if (this.state.searchBy === 'Priority')
-          return todo.todo_priority.includes(this.state.search);
+          return todo.todo_priority.toLowerCase().includes(this.state.search);
         else if (this.state.searchBy === 'Date')
           return todo.date.includes(this.state.search);
       });

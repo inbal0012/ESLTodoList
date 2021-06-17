@@ -63,7 +63,7 @@ export default class EditTodo extends Component {
     e.preventDefault();
 
     // TODO
-    console.log('submitted');
+    console.log('submitted ' + this.state.todo_completed);
 
     const updatedTodo = {
       todo_description: this.state.todo_description,
